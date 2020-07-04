@@ -24,5 +24,12 @@ namespace dotnet_rpg.Controllers
         public IActionResult GetSingle(int id){
             return Ok(characters.FirstOrDefault(c=> c.Id == id));
         }
+    
+        [HttpPost]
+        public IActionResult AddCaracter(Character pCharacter){
+            characters.Add(pCharacter);
+            return Ok(characters);
+        }
+
     }
 }
