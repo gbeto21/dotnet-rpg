@@ -353,3 +353,5 @@ MigrationBackup/
 ./appsettings.json
 appsettings.json
 ./appsettings.json
+
+Migrations/
