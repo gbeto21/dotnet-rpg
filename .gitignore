@@ -350,3 +350,6 @@ MigrationBackup/
 .ionide/
 
 .vscode/
+./appsettings.json
+appsettings.json
+./appsettings.json
