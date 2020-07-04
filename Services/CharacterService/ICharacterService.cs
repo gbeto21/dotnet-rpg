@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using dotnet_rpg.Model;
 
 namespace dotnet_rpg.Services.CharacterService
 {
     public interface ICharacterService
     {
-         List<Character> GetAllCharacters();
+         Task<List<Character>> GetAllCharacters();
 
-         Character GetCharacterById(int pId);
+         Task<Character> GetCharacterById(int pId);
 
-         List<Character> AddCharacter(Character pCharacter);
+         Task<List<Character>> AddCharacter(Character pCharacter);
     }
 }
