@@ -21,13 +21,13 @@ namespace dotnet_rpg.Data
         public async Task<ServiceResponse<int>> Register(User pUser, string pPassword)
         {
             ServiceResponse<int> response = new ServiceResponse<int>();
-            if(await UserExist(pUser.Name))
+            if(await UserExist(pUser.UserName))
             {
                 response.Success = false;
                 response.Message = "User already exists.";
                 return response;
             }
-            
+
             CreatePasswordHas(pPassword, out byte[] pPasswordHash, out byte [] pPasswordSalt);
             pUser.PasswordHash = pPasswordHash;
             pUser.PasswordSalt = pPasswordSalt;
@@ -40,7 +40,7 @@ namespace dotnet_rpg.Data
 
         public async Task<bool> UserExist(string pUserName)
         {
-            if(await context.Users.AnyAsync(u=> u.Name.ToLower() == pUserName.ToLower()))
+            if(await context.Users.AnyAsync(u=> u.UserName.ToLower() == pUserName.ToLower()))
                 return true;
             
             return false;
