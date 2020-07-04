@@ -27,8 +27,7 @@ namespace dotnet_rpg.Controllers
         [HttpGet("getall")]
         public async Task<IActionResult> Get()
         {
-            int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await characterService.GetAllCharacters(id));
+            return Ok(await characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
