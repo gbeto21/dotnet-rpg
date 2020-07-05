@@ -77,6 +77,8 @@ namespace dotnet_rpg.Services.CharacterService
         {
             ServiceResponse<GetCharacterDto> serviceResponse = new ServiceResponse<GetCharacterDto>();
             Character dbCharacter = await context.Characters
+            .Include(c=> c.Weapon)
+            .Include(c => c.CharacterSkills).ThenInclude(cs=>cs.Skill)
             .FirstOrDefaultAsync(c => c.Id == pId && c.User.Id == GetUserId());
             serviceResponse.Data = mapper.Map<GetCharacterDto>(dbCharacter);
             return serviceResponse;
