@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace dotnet_rpg.Model
 {
     public class Character
@@ -19,5 +21,7 @@ namespace dotnet_rpg.Model
         public User User { get; set; }
 
         public Weapon Weapon { get; set; }
+
+        public List<CharacterSkill> CharacterSkills { get; set; }
     }
 }
